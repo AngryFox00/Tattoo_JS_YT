@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
   closeButton.onclick = function() {
     loginModal.style.display = 'none';
-    document.querySelector('form').reset(); // Скидання форми
+    document.queryid('form').reset(); // Скидання форми
   }
 
   window.onclick = function(event) {
@@ -37,38 +37,37 @@ document.addEventListener('DOMContentLoaded', function(){
       alert('Пароль повинен містити від 6 до 12 символів, включаючи літери та цифри.');
       return;
     }
+
+    // Створення об'єкту для відправки на сервер
+    const formData = {
+      email: userEmail,
+      password: password
+    };
+
+    // Відправка даних на сервер у форматі JSON
+    fetch('https://cool-chat.club/tattoo/app/users/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error('Network response was not ok.');
+    })
+    .then(data => {
+      console.log('Server response:', data);
+    })
+    .catch(error => {
+      console.error('There was a problem with the fetch operation:', error);
+    });
+
+    console.log('Email:', userEmail);
+    console.log('Password:', password);
   });
-
- //Створення об'єкту на відправки до сервера 
- const formData = {
-  email: userEmail,
-  password: password
-};
-
-//Відправка даних на сервер у форматі JSON
-fetch('https://cool-chat.club/tattoo/app/users/', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(formData)
-})
-.then(response => {
-  if (response.ok) {
-    return response.json();
-  }
-  throw new Error('Network response was not ok.');
-})
-.then(data => {
-  console.log('Server response:', data);
-})
-.catch(error => {
-  console.error('There was a problem with the fetch operation:', error);
-});
-
-console.log('Email:', userEmail);
-console.log('Password:', password);
-
 
   // Валідація емейлу
   function validateEmail(email) {
@@ -81,8 +80,6 @@ console.log('Password:', password);
     const passWord = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,12}$/;
     return passWord.test(password);
   }
- 
-
 
   // Відображення паролю
   document.getElementById("togglePasswordOne").addEventListener("click", function() {
