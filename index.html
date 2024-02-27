@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tattoo-studio</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<header>
+  <nav class="nav-block" >
+    <ul class="navbar">
+      <img class="nb_positions" src="https://dsfokvnqjxxsziqofvss.supabase.co/storage/v1/object/public/Front_icon/tattoo%20x2/star.png">
+      <li class="nb_positions">Блог</li>
+      <li class="nb_positions">Галерея</li>
+      <li class="nb_positions">Майстри</li>
+      <li class="nb_positions">Де ми?</li>
+      <li class="nb_positions">Сеанс</li>
+      <li class="nb_positions">Контакт</li>
+      <img  class="nb_positions"src="https://dsfokvnqjxxsziqofvss.supabase.co/storage/v1/object/public/Front_icon/tattoo%20x2/tattoo-artist%20(2).png" alt="Login" id="loginImage" style="cursor: pointer;">
+    </ul>
+  </nav>
+
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <form >
+        <p class="formText" >Реєстрація</p>
+        <label  class="formText" for="useremail">Email</label>
+        <input type="email" id="useremail" name="useremail"><br>
+        <label id="passwordLabel" class="formText" for="password">Пароль
+          <img src="https://dsfokvnqjxxsziqofvss.supabase.co/storage/v1/object/public/Front_icon/tattoo%20x2/7694034_eye_eyes_see_view_watch..png" 
+          alt="Password Icon" class="togglePassword" id="togglePasswordOne" >
+          <img src="https://dsfokvnqjxxsziqofvss.supabase.co/storage/v1/object/public/Front_icon/tattoo%20x2/7694033_eye_eyes_hide_view_watch_icon%20(1).png" 
+          alt="Password Icon Close" class="togglePassword" id="toglePasswordTwo" style="display:none;">
+      </label>
+        <input type="password" id="password" name="password"><br>
+        <label for="check" class="check-text">
+        <input type="checkbox" id="check" name="check" >Запам'ятати мене</label><br>
+        <input  type="submit" id="submit" name="logIn" value="Увійти"><br>
+        <p>Забули пароль? Відновити можна тут.</p>
+      </form>
+    </div>
+  </div>
+</header>
+
+
+
+  <script src="./scriptYT.js"></script>
+</body>
+</html>
