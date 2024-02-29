@@ -1,16 +1,19 @@
 document.addEventListener('DOMContentLoaded', function(){
-  // Попап для логування
+
   const loginModal = document.getElementById('loginModal');
   const loginImage = document.getElementById('loginImage');
   const closeButton = loginModal.querySelector('.close');
-  
+  const passwordInput = document.getElementById("password");
+
+    // Попап для логування
+
   loginImage.onclick = function() {
     loginModal.style.display = 'block';
   }
 
   closeButton.onclick = function() {
     loginModal.style.display = 'none';
-    document.queryid('form').reset(); // Скидання форми
+    document.querySelector('form').reset(); // Скидання форми
   }
 
   window.onclick = function(event) {
@@ -19,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function(){
       document.querySelector('form').reset(); // Скидання форми
     }
   }
+
 
   // Валідація емейлу та паролю
   const loginForm = document.querySelector('form');
@@ -83,17 +87,35 @@ document.addEventListener('DOMContentLoaded', function(){
 
   // Відображення паролю
   document.getElementById("togglePasswordOne").addEventListener("click", function() {
-    const passwordInput = document.getElementById("password");
     passwordInput.type = "text";
     this.style.display = "none";
     document.getElementById("togglePasswordTwo").style.display = "block";
   });
 
   document.getElementById("togglePasswordTwo").addEventListener("click", function() {
-    const passwordInput = document.getElementById("password");
     passwordInput.type = "password";
     this.style.display = "none";
     document.getElementById("togglePasswordOne").style.display = "block";
   });
+
+  //Активація кнопки "Увійти" після заповнення форми
+
+  function updateButtonState() {
+     var isEmailValid = emailInput.value.includes('@') && emailInput.value.includes('.valid');
+     var isPasswordValid = passwordInput.value.length >=6;
+     if (isEmailValid && isPasswordValid) {
+      submitButton.classList.add('button-active');
+      submitButton.disabled = false;
+     } else {
+      submitButton.classList.remove('button-active');
+      submitButton.disables = true;
+     }
+  }
+  emailInput.addEventListener('input', updateButtonState);
+  passwordInput.addEventListener('input',updateButtonState);
+
+        //початкове відключення кнопки
+    submitButton.disabled = true;
+
 
 });
