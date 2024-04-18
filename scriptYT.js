@@ -114,8 +114,7 @@ document.addEventListener('DOMContentLoaded', function(){
   emailInput.addEventListener('input', updateButtonState);
   passwordInput.addEventListener('input',updateButtonState);
 
-        //початкове відключення кнопки
-    submitButton.disabled = true;
+     
 
 
 });

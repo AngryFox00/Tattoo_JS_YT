@@ -128,6 +128,18 @@ input[type="submit"]{
   
 }
 
-.button-active{
 
+/*відео контейнер*/
+
+.video_wrapper{
+  width:100% ;
+  height:20% ;
+}
+
+.video_container{
+display: block;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 200px;
 }
